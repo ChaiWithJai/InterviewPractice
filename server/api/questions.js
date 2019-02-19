@@ -11,7 +11,7 @@ router.get('/', async (req, res, next) => {
   }
 })
 
-router.put('/:userId', async (req, res, next) => {
+router.post('/:userId', async (req, res, next) => {
   try {
     const questionText = req.body.questionText
     const userId = req.params.userId
