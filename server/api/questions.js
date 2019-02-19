@@ -10,3 +10,15 @@ router.get('/', async (req, res, next) => {
     next(err)
   }
 })
+
+router.post('/:userId', async (req, res, next) => {
+  console.log('req.body', req.body)
+  try {
+    const questionText = req.body.questionText
+    const userId = req.params.userId
+    const questionSent = await Question.create({questionText, userId})
+    res.send(questionSent)
+  } catch (err) {
+    next(err)
+  }
+})
