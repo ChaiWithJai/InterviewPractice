@@ -10,3 +10,14 @@ router.get('/', async (req, res, next) => {
     next(err)
   }
 })
+
+router.put('/:userId', async (req, res, next) => {
+  try {
+    const questionText = req.body.questionText
+    const userId = req.params.userId
+    await Question.create({questionText, userId})
+    res.send('Question was created')
+  } catch (err) {
+    next(err)
+  }
+})
