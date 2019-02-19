@@ -9,11 +9,15 @@ const gotQuestion = question => ({
   question
 })
 
-export const getQuestion = userId => {
+export const getQuestion = (question, userId) => {
+  console.log('what got passed in as question prop', question)
   return async dispatch => {
     try {
-      const {data: question} = await axios.post(`/api/questions/${userId}`)
-      dispatch(gotQuestion(question))
+      const {data: questionObj} = await axios.post(`/api/questions/${userId}`, {
+        questionText: question
+      })
+      console.log('data', questionObj)
+      dispatch(gotQuestion(questionObj))
     } catch (err) {
       console.error('Issue with posting your question', err.message)
     }

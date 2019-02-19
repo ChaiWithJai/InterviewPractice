@@ -13,7 +13,7 @@ class askQuestion extends Component {
   }
   handleSubmit = async evt => {
     evt.preventDefault()
-    await this.props.getQuestion(this.props.userId)
+    await this.props.getQuestion(this.state.question, this.props.userId)
     this.setState({question: ''})
   }
   handleChange = evt => {
@@ -49,7 +49,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    getQuestion: userId => dispatch(getQuestion(userId))
+    getQuestion: (question, userId) => dispatch(getQuestion(question, userId))
   }
 }
 
