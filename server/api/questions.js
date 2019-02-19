@@ -12,7 +12,6 @@ router.get('/', async (req, res, next) => {
 })
 
 router.post('/:userId', async (req, res, next) => {
-  console.log('req.body', req.body)
   try {
     const questionText = req.body.questionText
     const userId = req.params.userId
