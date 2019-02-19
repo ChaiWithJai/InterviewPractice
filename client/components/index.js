@@ -6,4 +6,5 @@
 export {default as Navbar} from './navbar'
 export {default as UserHome} from './user-home'
 export {default as askQuestion} from './askQuestion'
+export {default as readQuestion} from './readQuestion'
 export {Login, Signup} from './auth-form'
